@@ -31,7 +31,6 @@ class ParenthesesBalancer {
 	}
 
     public static void main(String[] args) {
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
         String expr1 = "{[()]}";
 		if (areParenthesesBalanced(expr1)) {
 			System.out.println("The parentheses are balanced. ");
@@ -39,7 +38,7 @@ class ParenthesesBalancer {
 			System.out.println("The parentheses are not balanced");
 		}
 		System.out.println(expr1 + " -> " + areParenthesesBalanced(expr1)); // true
-	System.out.println();
+		System.out.println();
 
         String expr2 = "({a+b*c/([d+e-(f+g)*(a+b)])*(f-g+b)}/(d-e-(a+b)))";
 		if (areParenthesesBalanced(expr2)) {
@@ -50,3 +49,4 @@ class ParenthesesBalancer {
 		System.out.println(expr2 + " -> " + areParenthesesBalanced(expr2)); // true
     }
 }
+
