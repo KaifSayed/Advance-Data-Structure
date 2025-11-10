@@ -12,8 +12,6 @@ class LinearSearch {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
-	System.out.println("01 - 10 - 2025");
 
         System.out.print("Enter the number of elements: ");
         int size = scanner.nextInt();
@@ -38,4 +36,5 @@ class LinearSearch {
 
         scanner.close();
     }
+
 }
