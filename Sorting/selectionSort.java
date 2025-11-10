@@ -30,14 +30,14 @@ class SelectionSort {
     }
     // Main method to test the sort
     public static void main(String[] args) {
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
         int[] arr = {42, 53, 71, 9, 15, 55, 4, 82};
-	System.out.println("Original array: ");
+		System.out.println("Original array: ");
 
-	printArray(arr);
-	selectionSort(arr);
+		printArray(arr);
+		selectionSort(arr);
 
-	System.out.println("Sorted array: ");
-	printArray(arr);
+		System.out.println("Sorted array: ");
+		printArray(arr);
     }
 }
+
