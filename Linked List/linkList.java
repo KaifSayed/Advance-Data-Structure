@@ -131,8 +131,6 @@ public class linkList
 		list.insert(40);
 
 		// Display the list
-		System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
-
 		System.out.println("Linked list: ");
 		list.display(); // Output: 10 20 30 40
 
@@ -156,3 +154,4 @@ public class linkList
 		list.delete(50); // Output: Node with value 50 not found.
 	} 
 }
+
