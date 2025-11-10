@@ -61,7 +61,6 @@ class Stack{
 // Usage Example
 public class LinkedListStack{
 	public static void main(String[] args) {
-		System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
 		Stack stack = new Stack();
 		stack.push(10);
 		stack.push(20);
@@ -74,4 +73,5 @@ public class LinkedListStack{
 
 		System.out.println("Top elememt is : "+ stack.peek());
 	}
+
 }
