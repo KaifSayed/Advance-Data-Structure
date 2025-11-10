@@ -97,31 +97,34 @@ It includes practical applications such as **expression conversion and evaluatio
 ---
 
 ## 📑 File Structure
+
+```bash
 📁 Advanced-Data-Structures
 │
 ├── Searching/
-│ ├── linear_search.java
-│ └── binary_search.java
+│   ├── linear_search.java
+│   └── binary_search.java
 │
 ├── Sorting/
-│ ├── bubble_sort.java
-│ ├── selection_sort.java
-│ └── insertion_sort.java
+│   ├── bubble_sort.java
+│   ├── selection_sort.java
+│   └── insertion_sort.java
 │
 ├── Stack/
-│ ├── infix_to_postfix.java
-│ ├── postfix_evaluation.java
-│ ├── infix_to_prefix.java
-│ ├── prefix_evaluation.java
-│ └── stack_linkedlist.java
+│   ├── infix_to_postfix.java
+│   ├── postfix_evaluation.java
+│   ├── infix_to_prefix.java
+│   ├── prefix_evaluation.java
+│   └── stack_linkedlist.java
 │
 ├── Linked_Lists/
-│ ├── singly_linked_list.java
-│ ├── doubly_linked_list.java
-│ ├── header_linked_list.java
-│ └── doubly_ended_linked_list.java
+│   ├── singly_linked_list.java
+│   ├── doubly_linked_list.java
+│   ├── header_linked_list.java
+│   └── doubly_ended_linked_list.java
 │
 └── README.md
+```
 
 ---
 
