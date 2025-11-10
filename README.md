@@ -96,18 +96,39 @@ It includes practical applications such as **expression conversion and evaluatio
 
 ---
 
-## ⚙️ Technologies Used
-- **Language:** C / C++ (based on your implementation)  
-- **IDE:** Code::Blocks / Visual Studio Code / Turbo C++  
-- **Data Structures Used:** Stack, Linked List  
-
----
-
-## 🚀 How to Run
-1. Clone or download the project folder.  
-2. Open the project in your preferred C/C++ IDE.  
-3. Compile and run individual `.c` or `.cpp` files for each topic.  
-
----
-
 ## 📑 File Structure
+📁 Advanced-Data-Structures
+│
+├── Searching/
+│ ├── linear_search.java
+│ └── binary_search.java
+│
+├── Sorting/
+│ ├── bubble_sort.java
+│ ├── selection_sort.java
+│ └── insertion_sort.java
+│
+├── Stack/
+│ ├── infix_to_postfix.java
+│ ├── postfix_evaluation.java
+│ ├── infix_to_prefix.java
+│ ├── prefix_evaluation.java
+│ └── stack_linkedlist.java
+│
+├── Linked_Lists/
+│ ├── singly_linked_list.java
+│ ├── doubly_linked_list.java
+│ ├── header_linked_list.java
+│ └── doubly_ended_linked_list.java
+│
+└── README.md
+
+---
+
+## 👨‍💻 Author
+**Name:** Sayed Mohd. Kaif  
+**Course:** Advanced Data Structures  
+**Institution:** GNIMS / Mumbai University
+**Instructor:** Sandhya Kapil Thakkar  
+
+---
