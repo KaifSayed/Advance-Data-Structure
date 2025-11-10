@@ -77,10 +77,10 @@ class InfixEvaluator {
     }
 
     public static void main(String[] args) {
-        System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
-
         String infixExpression = "(2*3)+(5*4)-9";
         int result = evaluateInfix(infixExpression);
+        
         System.out.println("Result of Infix Expression: " + result);
     }
 }
+
