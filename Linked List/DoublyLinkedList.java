@@ -163,13 +163,12 @@ class DoublyLinkedList {
     public static void main(String[] args) {
         DoublyLinkedList list = new DoublyLinkedList();
 
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
         System.out.println("List (Forward):");
         list.displayForward();
 
         System.out.println("List (Backward):");
         list.displayBackward();
-	System.out.println("Inserting at Beginning:");
+		System.out.println("Inserting at Beginning:");
         list.insertAtBeginning(10);
         list.insertAtBeginning(20);
         list.insertAtBeginning(30);
@@ -208,3 +207,4 @@ class DoublyLinkedList {
         list.displayBackward();
     }
 }
+
