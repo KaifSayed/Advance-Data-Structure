@@ -116,7 +116,7 @@ It includes practical applications such as **expression conversion and evaluatio
 │   ├── infix_to_prefix.java
 │   ├── prefix_evaluation.java
 │   ├── stack_linkedlist.java
-|   └── parenthese_balancer.java
+│   └── parenthese_balancer.java
 │
 ├── Linked_Lists/
 │   ├── singly_linked_list.java
