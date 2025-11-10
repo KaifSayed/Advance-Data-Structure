@@ -3,7 +3,7 @@ Advance data structure from MCA
 
 ## 🧩 Overview
 This project demonstrates the implementation of **advanced data structure concepts** and **searching/sorting algorithms** in a step-by-step manner.  
-It includes practical applications such as **expression conversion and evaluation**, **stack and linked list operations**, and **parentheses balancing**.
+It includes practical applications such as **expression conversion and evaluation**, **stack and linked list operations**, and **infix convertions**.
 
 ---
 
