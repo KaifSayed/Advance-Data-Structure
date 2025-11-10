@@ -112,7 +112,6 @@ class HeaderLinkedList {
 class HeaderLL{
     public static void main(String[] args) {
         HeaderLinkedList list = new HeaderLinkedList();
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
 
         // Insert element at the beginning and end
         list.insertAtBeginning(10);
@@ -135,4 +134,5 @@ class HeaderLL{
         System.out.println("Found 100: " + list.search(100));
         
     }
+
 }
