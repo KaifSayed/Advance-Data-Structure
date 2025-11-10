@@ -35,10 +35,10 @@ class PostfixEvaluator {
     }
 
     public static void main(String[] args) {
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
         String postfixExpression = "23*54*+9-"; 
-	// Example: (2 * 3) + (5 * 4) - 9
+		// Example: (2 * 3) + (5 * 4) - 9
         int result = evaluatePostfix(postfixExpression);
         System.out.println("The result of the postfix expression is: " + result);
     }
 }
+
