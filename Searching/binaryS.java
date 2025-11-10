@@ -30,9 +30,7 @@ class BinarySearch {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
-	System.out.println("01 - 10 - 2025");
-
+		
         // Input the array size
         System.out.print("Enter the number of elements in the array: ");
         int size = scanner.nextInt();
@@ -60,4 +58,5 @@ class BinarySearch {
 	// Close the scanner
         scanner.close();
     }
+
 }
