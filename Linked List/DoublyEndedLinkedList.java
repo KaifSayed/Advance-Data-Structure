@@ -108,7 +108,6 @@ class DoublyEndedLinkedList{
     }
     public static void main(String[] args) {
         DoublyEndedLinkedList list = new DoublyEndedLinkedList();
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
 
         list.insertAtHead(10);
         list.insertAtHead(20);
@@ -138,4 +137,5 @@ class DoublyEndedLinkedList{
         System.out.println("List after head to tail after delecting from tail: ");
         list.displayFromHead();
     }
+
 }
