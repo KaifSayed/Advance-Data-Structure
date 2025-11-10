@@ -88,10 +88,10 @@ class InfixToPrefix {
     }
 
     public static void main(String[] args) {
-        System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
-
         String infix = "a+b*(c^d-e)^(f+g*h)-i";
         String prefix = infixToPrefix(infix);
+        
         System.out.println("Prefix Expression: " + prefix);
     }
 }
+
