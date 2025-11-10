@@ -72,7 +72,6 @@ class HeaderLinkedList {
 class HeaderLL2 {
     public static void main(String[] args) {
         HeaderLinkedList list = new HeaderLinkedList();
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
 
         list.insert(10);
         list.insert(20);
@@ -90,3 +89,4 @@ class HeaderLL2 {
         System.out.println("Is 50 present in list: " + list.search(50));
     }
 }
+
