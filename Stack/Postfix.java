@@ -64,14 +64,14 @@ class InfixToPostfix {
     }
 
     public static void main(String[] args) {
-	System.out.println("25MCA53 - Sayed Mohammed Kaif Talib");
         String infix1 = "a+b*(c^d-e)^(f+g*h)-i";
-	String infix2 = "(x*y)+(z+((a+b-c)*d))-i*(j/k)";
+		String infix2 = "(x*y)+(z+((a+b-c)*d))-i*(j/k)";
 
-	String postfix1 = infixToPostfix(infix1);
-	String postfix2 = infixToPostfix(infix2);
+		String postfix1 = infixToPostfix(infix1);
+		String postfix2 = infixToPostfix(infix2);
   
         System.out.println("Postfix Expression 1: " + postfix1);
-	System.out.println("Postfix Expression 2: " + postfix2);
+		System.out.println("Postfix Expression 2: " + postfix2);
     }
 }
+
