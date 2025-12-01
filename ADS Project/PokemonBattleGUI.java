@@ -1,3 +1,4 @@
+// Graphics
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,14 +12,16 @@ import java.awt.Rectangle;
 import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+// Data Structure
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+// Layout
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -72,7 +75,7 @@ class Pokemon {
     int maxHp;
     int hp;
     int attack;
-    java.util.List<Move> moves;
+    List<Move> moves;
     ImageIcon sprite;
 
     Pokemon(String name, PokeType type, int maxHp, int attack, java.util.List<Move> moves) {
@@ -87,7 +90,7 @@ class Pokemon {
 
 /* ------------------- Main GUI Frame ------------------- */
 
-class BattleFrame extends JFrame {
+final class BattleFrame extends JFrame {
     // Data
     java.util.List<Pokemon> pokedex = new ArrayList<>();
     java.util.List<Pokemon> playerTeam = new ArrayList<>();
@@ -108,7 +111,7 @@ class BattleFrame extends JFrame {
     JButton[] moveButtons = new JButton[3];
     JButton btnSwitch = new JButton("Switch (uses turn)");
     JTextArea logArea = new JTextArea();
-    JTextArea dialogArea = new JTextArea(3, 10); // visible in TR quadrant
+    // JTextArea dialogArea = new JTextArea(3, 10);
     JTextArea teamStatusArea = new JTextArea(6, 12); // in BR for small team status
 
     // preferred HP bar size (keeps both equal)
@@ -171,6 +174,7 @@ class BattleFrame extends JFrame {
         JScrollPane logScroll = new JScrollPane(logArea);
         logScroll.setPreferredSize(new Dimension(350, 300));
 
+        /* --- Remove Dialog - k ---
         dialogArea.setEditable(false);
         dialogArea.setLineWrap(true);
         dialogArea.setWrapStyleWord(true);
@@ -178,9 +182,10 @@ class BattleFrame extends JFrame {
         dialogArea.setBorder(BorderFactory.createTitledBorder("Dialogue"));
         JScrollPane dialogScroll = new JScrollPane(dialogArea);
         dialogScroll.setPreferredSize(new Dimension(350, 120));
+        */
 
         tr.add(logScroll, BorderLayout.CENTER);
-        tr.add(dialogScroll, BorderLayout.SOUTH);
+        // tr.add(dialogScroll, BorderLayout.SOUTH);
 
         // --------- BL: Player (sprite + name + hp) ----------
         JPanel bl = new JPanel();
@@ -211,7 +216,7 @@ class BattleFrame extends JFrame {
         JPanel br = new JPanel();
         br.setLayout(new BorderLayout(6,6));
         br.setBorder(BorderFactory.createTitledBorder("Controls"));
-        JPanel movesPanel = new JPanel(new GridLayout(2,2,12,12));
+        JPanel movesPanel = new JPanel(new GridLayout(2,2,8,8));
         for (int i=0;i<3;i++) {
             moveButtons[i] = new JButton("Move " + (i+1));
             int idx = i;
@@ -225,11 +230,11 @@ class BattleFrame extends JFrame {
         teamStatusArea.setEditable(false);
         teamStatusArea.setFont(teamStatusArea.getFont().deriveFont(Font.PLAIN, 12f));
         teamStatusArea.setBorder(BorderFactory.createTitledBorder("Team Status"));
-        JScrollPane teamScroll = new JScrollPane(teamStatusArea);
-        teamScroll.setPreferredSize(new Dimension(200,150));
+        // JScrollPane teamScroll = new JScrollPane(teamStatusArea); // removed scroll -k
+        teamStatusArea.setPreferredSize(new Dimension(200,180)); // made height 150 to 180 -k
 
         br.add(movesPanel, BorderLayout.CENTER);
-        br.add(teamScroll, BorderLayout.SOUTH);
+        br.add(teamStatusArea, BorderLayout.SOUTH);
 
         // add quadrants to root in order: TL, TR, BL, BR
         root.add(tl);
@@ -342,8 +347,10 @@ class BattleFrame extends JFrame {
         for (Pokemon p: playerTeam) p.heal();
         for (Pokemon p: cpuTeam) p.heal();
         updateUIAll();
-        log("Battle begins! You vs Computer.");
-        dialog("A wild " + cpuTeam.get(cpuIndex).name + " appears!");
+        log("|############################|");
+        log("|# Battle begins! You vs Computer. #|");
+        log("|############################|");
+        log("A wild " + cpuTeam.get(cpuIndex).name + " appears!");
         updateTeamStatus();
     }
 
@@ -391,12 +398,10 @@ class BattleFrame extends JFrame {
         }
         Move chosen = player.moves.get(moveIdx);
         log("You used " + chosen.name + "!");
-        dialog("You used " + chosen.name + "!");
         applyDamage(player, cpu, chosen, true);
         updateUIAll();
         if (cpu.isFainted()) {
             log(cpu.name + " fainted!");
-            dialog(cpu.name + " fainted!");
             cpuIndex = advanceIndex(cpuTeam, cpuIndex);
             if (cpuIndex >= cpuTeam.size()) {
                 JOptionPane.showMessageDialog(this, "You win! All opponent Pokémon fainted.");
@@ -404,7 +409,6 @@ class BattleFrame extends JFrame {
                 return;
             } else {
                 log("Opponent sends out " + cpuTeam.get(cpuIndex).name + "!");
-                dialog("Opponent sends out " + cpuTeam.get(cpuIndex).name + "!");
                 updateUIAll();
             }
             return;
@@ -429,7 +433,6 @@ class BattleFrame extends JFrame {
                 return;
             } else {
                 log("Opponent sends out " + cpuTeam.get(cpuIndex).name + "!");
-                dialog("Opponent sends out " + cpuTeam.get(cpuIndex).name + "!");
                 updateUIAll();
             }
             setAllButtonsEnabled(true);
@@ -439,18 +442,16 @@ class BattleFrame extends JFrame {
         Move best = null;
         double bestScore = -1;
         for (Move m : cpu.moves) {
-            double mul = getEffectiveness(m.type, player.type);
-            double score = m.power * mul;
-            if (mul > 1.5) score += 20; // prefer super-effective
+            double move = getEffectiveness(m.type, player.type);
+            double score = m.power * move;
+            if (move > 1.5) score += 20; // prefer super-effective
             if (score > bestScore) { bestScore = score; best = m; }
         }
         log("Opponent uses " + best.name + "!");
-        dialog("Opponent uses " + best.name + "!");
         applyDamage(cpu, player, best, false);
         updateUIAll();
         if (player.isFainted()) {
             log(player.name + " fainted!");
-            dialog(player.name + " fainted!");
             playerIndex = advanceIndex(playerTeam, playerIndex);
             if (playerIndex >= playerTeam.size()) {
                 JOptionPane.showMessageDialog(this, "All your Pokémon fainted. You lose.");
@@ -458,7 +459,6 @@ class BattleFrame extends JFrame {
                 return;
             } else {
                 log("You send out " + playerTeam.get(playerIndex).name + "!");
-                dialog("You send out " + playerTeam.get(playerIndex).name + "!");
                 updateUIAll();
             }
         }
@@ -484,7 +484,6 @@ class BattleFrame extends JFrame {
         int chosenIndex = indices.get(choices.indexOf(sel));
         playerIndex = chosenIndex;
         log("You switched to " + playerTeam.get(playerIndex).name + ". (This uses your turn)");
-        dialog("You switched to " + playerTeam.get(playerIndex).name + ".");
         updateUIAll();
         // CPU immediately moves
         setAllButtonsEnabled(false);
@@ -502,15 +501,13 @@ class BattleFrame extends JFrame {
         if (defender.hp < 0) defender.hp = 0;
 
         String effText = "";
-        if (mul >= 1.99) effText = " It's super effective!";
-        else if (mul <= 0.51) effText = " It's not very effective.";
+        if (mul >= 1.99) effText = " [ It's super effective! ]";
+        else if (mul <= 0.51) effText = " [ It's not very effective. ]";
 
         if (isPlayer) {
             log(String.format("You dealt %d damage to %s.%s", damage, defender.name, effText));
-            dialog(String.format("You dealt %d damage to %s.%s", damage, defender.name, effText));
         } else {
             log(String.format("Opponent dealt %d damage to %s.%s", damage, defender.name, effText));
-            dialog(String.format("Opponent dealt %d damage to %s.%s", damage, defender.name, effText));
         }
     }
 
@@ -533,11 +530,6 @@ class BattleFrame extends JFrame {
     void log(String s) {
         logArea.append(s + "\n");
         logArea.setCaretPosition(logArea.getDocument().getLength());
-    }
-
-    void dialog(String s) {
-        dialogArea.append(s + "\n");
-        dialogArea.setCaretPosition(dialogArea.getDocument().getLength());
     }
 
     void updateTeamStatus() {
