@@ -1,4 +1,11 @@
-// Graphics
+/**
+ * This is the Advance Data Structure project for MCA 25-27
+ * by team of three students namely
+ * 52 - Savant Ninad
+ * 53 - Sayed Kaif
+ * 54 - Sharma Anurag
+ */
+// GUI
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,7 +19,7 @@ import java.awt.Rectangle;
 import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-// Data Structure
+// Data Structures
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -21,7 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-// Layout
+// Layouts
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -406,6 +413,8 @@ final class BattleFrame extends JFrame {
             if (cpuIndex >= cpuTeam.size()) {
                 JOptionPane.showMessageDialog(this, "You win! All opponent Pokémon fainted.");
                 disableAll();
+                // CALL THE BUTTON FOR RESTARTING THE GAME
+                restartAll();
                 return;
             } else {
                 log("Opponent sends out " + cpuTeam.get(cpuIndex).name + "!");
@@ -456,6 +465,8 @@ final class BattleFrame extends JFrame {
             if (playerIndex >= playerTeam.size()) {
                 JOptionPane.showMessageDialog(this, "All your Pokémon fainted. You lose.");
                 disableAll();
+                // Call for restarting the game again - k
+                restartAll();
                 return;
             } else {
                 log("You send out " + playerTeam.get(playerIndex).name + "!");
@@ -519,6 +530,23 @@ final class BattleFrame extends JFrame {
     void disableAll() {
         setAllButtonsEnabled(false);
     }
+
+    void restartAll() {
+        setAllButtonsEnabled(false);
+        
+        JPanel restartPanel = new JPanel();
+        JButton btnRestart = new JButton("Restart Game");
+
+        btnRestart.addActionListener(e -> {
+            dispose();
+            new BattleFrame().setVisible(true);
+        });
+        restartPanel.add(btnRestart);
+        ((JPanel)getContentPane().getComponent(1)).add(restartPanel, BorderLayout.SOUTH);
+        getContentPane().revalidate();
+        getContentPane().repaint();
+    }
+
 
     int advanceIndex(java.util.List<Pokemon> team, int current) {
         // returns new index if any alive remain, else returns team.size() (meaning none left)
