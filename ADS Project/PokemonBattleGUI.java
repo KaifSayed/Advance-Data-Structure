@@ -1,10 +1,6 @@
 /**
  * This is the Advance Data Structure project for MCA 25-27
- * by team of three students namely
- * 52 - Savant Ninad
- * 53 - Sayed Kaif
- * 54 - Sharma Anurag
- */
+ **/
 // GUI
 import java.awt.BorderLayout;
 import java.awt.Color;
